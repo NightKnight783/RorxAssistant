@@ -1,3 +1,6 @@
+# Config file containing token
+config.json
+
 # Logs
 logs
 *.log

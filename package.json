@@ -1,0 +1,26 @@
+{
+  "name": "compagnonpokebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NightKnight783/CompagnonPokeBot.git"
+  },
+  "author": "NightKnight",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NightKnight783/CompagnonPokeBot/issues"
+  },
+  "homepage": "https://github.com/NightKnight783/CompagnonPokeBot#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "nodemon": "^2.0.20",
+    "papaparse": "^5.4.1"
+  }
+}
