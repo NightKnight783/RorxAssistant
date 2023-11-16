@@ -1,0 +1,12 @@
+[
+    {
+        "name": "M0 la muraille",
+        "rarity": "titanium",
+        "class": "Hunter",
+        "type": "Robot",
+        "pieceCost": 4000,
+        "constructCost": 3,
+        "cardSpriteName": "M0_le_mur.jpg",
+        "description": "Ceci est une description"
+    }
+]
