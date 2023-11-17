@@ -20,7 +20,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor(0x00FF00)
             .setTitle("Bonjour!")
-            .setAuthor({ name: interaction.user.username })
+            .setAuthor({ name: interaction.user.globalName })
             .setDescription(`Je suis un bot destiné a assister ce serveur en donnant accès a des informations du jeu comme une banque de donnée. 
             Mais pour le moment je suis en developpement alors n'en attendez pas trop!
             Cependant, Voici l'image d'un évoli pour illuminer votre journée!
