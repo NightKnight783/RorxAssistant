@@ -1,6 +1,19 @@
 const { SlashCommandBuilder, EmbedBuilder, Colors } = require('discord.js');
 const { Database } = require('sqlite3')
 
+const getMedal = (i) => {
+    switch(i) {
+        case 1:
+            return ":first_place: "
+        case 2:
+            return ":second_place: "
+        case 3:
+            return ":third_place: "
+        default:
+            return `#${i}`
+    }
+}
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('leaderboard')
@@ -24,8 +37,8 @@ module.exports = {
 
             for (var i = 1; i <= value.length; i++) {
                 embed.addFields({
-                    name: "#" + i + " " + value[i - 1].userName,
-                    value: "Level: " + value[i - 1].level + ", xp: " + value[i - 1].xp 
+                    name: getMedal(i) + " " + value[i - 1].userName,
+                    value: "Niveau: " + value[i - 1].level + " | Xp: " + value[i - 1].xp + ""
                 })
             }
 

@@ -28,9 +28,9 @@ module.exports = {
 
                     const embed = new EmbedBuilder()
                         .setColor(Colors.Blue)
-                        .setAuthor({ name: interaction.user.username })
-                        .setTitle("Status")
-                        .setDescription("Level: 1\nxp: 0\nXp requis avant level up: 500");
+                        .setAuthor({ name: interaction.user.globalName })
+                        .setTitle("Vous êtes actuellement Level: 1")
+                        .setDescription("Vous possedez 0 xp\nIl vous en manque donc 500 avant de monter de niveau!");
 
                     await interaction.reply(
                         {
@@ -41,8 +41,8 @@ module.exports = {
                     const embed = new EmbedBuilder()
                     .setColor(Colors.Blue)
                     .setAuthor({ name: interaction.user.globalName })
-                    .setTitle("Status")
-                    .setDescription(`Level: ${value.level}\nxp: ${value.xp}\nXp requis avant level up: ${(value.level * 500) - value.xp}`);
+                    .setTitle(`Vous êtes actuellement Level: ${value.level}`)
+                    .setDescription(`Vous possedez ${value.xp} xp\nIl vous en manque donc ${(value.level * 500) - value.xp} avant de monter de niveau!`);
 
                 await interaction.reply(
                     {

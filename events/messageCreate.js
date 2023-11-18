@@ -1,8 +1,8 @@
-const discord = require('discord.js')
+const { EmbedBuilder, Colors, Events } = require('discord.js');
 const { Database } = require('sqlite3')
 
 module.exports = {
-    name: discord.Events.MessageCreate,
+    name: Events.MessageCreate,
     async execute(message) {
         if (message.author.bot) return
 
@@ -37,7 +37,12 @@ module.exports = {
                         xp -= ((level) * 500)
                         level ++;
 
-                        message.channel.send(`Féliciation <@${value.userId}>, vous avez atteind le niveau ${level}!`);
+                        const embed = new EmbedBuilder()
+                            .setColor(Colors.Blue)
+                            .setTitle(`Félicitation ${message.author.globalName}!`)
+                            .setDescription(`Vous venez d'atteindre le niveau ${level}!`)
+
+                        message.channel.send({ embeds: [embed] });
                     }
 
                     //Update user xp
