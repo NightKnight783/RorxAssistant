@@ -1,6 +1,9 @@
 # Config file containing token
 config.json
 
+#Database file
+Database.sqlite
+
 # Logs
 logs
 *.log
