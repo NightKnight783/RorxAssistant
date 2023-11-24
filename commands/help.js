@@ -1,8 +1,4 @@
-const { SlashCommandBuilder, ButtonStyle, Colors, ActionRowBuilder, StringSelectMenuOptionBuilder, ButtonBuilder, StringSelectMenuBuilder, EmbedBuilder} = require('discord.js');
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+const { SlashCommandBuilder, ButtonStyle, Colors, ActionRowBuilder,  ButtonBuilder, EmbedBuilder} = require('discord.js');
 
 loopButton = async (response, interaction, components) => {
     try {
@@ -16,7 +12,7 @@ loopButton = async (response, interaction, components) => {
         switch(confirmation.customId) {
             case 'server':  
                 const embedServer = new EmbedBuilder()
-                    .setColor(Colors.Purple)
+                    .setColor(Colors.Red)
                     .setAuthor({ name: interaction.user.globalName })
                     .setTitle(`Informations a propos du serveur [NIY]`);
 
@@ -78,7 +74,6 @@ loopButton = async (response, interaction, components) => {
 
         return await loopButton(responseLoop, interaction, components)
     } catch(e) {
-        console.log(e)
         interaction.deleteReply();
         return;
     }
@@ -94,41 +89,18 @@ module.exports = {
         const server = new ButtonBuilder()
             .setCustomId('server')
             .setLabel('Serveur')
-            .setStyle(ButtonStyle.Primary);
+            .setStyle(ButtonStyle.Danger);
 
         const command = new ButtonBuilder()
             .setCustomId('command')
             .setLabel('Commandes')
-            .setStyle(ButtonStyle.Primary);
+            .setStyle(ButtonStyle.Success);
 
         const xp = new ButtonBuilder()
             .setCustomId('xp')
             .setLabel('Experience')
             .setStyle(ButtonStyle.Primary);
 
-            /*
-		const select = new StringSelectMenuBuilder()
-			.setCustomId('help')
-			.setPlaceholder('Choisissez votre sujet.')
-			.addOptions(
-                new StringSelectMenuOptionBuilder()
-                    .setLabel('Serveur')
-                    .setDescription('Obtenez toutes les informations nécéssaire sur le serveur.')
-                    .setValue('server'),
-				new StringSelectMenuOptionBuilder()
-					.setLabel('Commandes')
-					.setDescription('Présentation de la liste des commandes disponibles.')
-					.setValue('command'),
-				new StringSelectMenuOptionBuilder()
-					.setLabel('Système d\'xp')
-					.setDescription('Comprennez le fonctionnement du système d\'experience du serveur.')
-					.setValue('xp')
-			);
-
-
-        const row = new ActionRowBuilder()
-			.addComponents(select);
-*/
         const row = new ActionRowBuilder()
             .addComponents(server, command, xp);
 

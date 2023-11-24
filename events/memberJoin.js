@@ -1,4 +1,4 @@
-const { Client, Events } = require("discord.js")
+const { Events } = require("discord.js")
 
 const channelId = "1162124995451949196"
 
