@@ -9,6 +9,11 @@ module.exports = {
 		
         const db = new Database("Database.sqlite")
 
+        const author = {
+            name: interaction.user.globalName,
+            iconURL: "https://cdn.discordapp.com/avatars/" + interaction.user.id + '/' + interaction.user.avatar
+        }
+
         db.serialize(() => {
                 
             db.get(`
@@ -28,7 +33,7 @@ module.exports = {
 
                     const embed = new EmbedBuilder()
                         .setColor(Colors.Blue)
-                        .setAuthor({ name: interaction.user.globalName })
+                        .setAuthor(author)
                         .setTitle("Vous êtes actuellement Level: 1")
                         .setDescription("Vous possedez 0 xp\nIl vous en manque donc 500 avant de monter de niveau!");
 
@@ -40,7 +45,7 @@ module.exports = {
                 else {
                     const embed = new EmbedBuilder()
                     .setColor(Colors.Blue)
-                    .setAuthor({ name: interaction.user.globalName })
+                    .setAuthor(author)
                     .setTitle(`Vous êtes actuellement Level: ${value.level}`)
                     .setDescription(`Vous possedez ${value.xp} xp\nIl vous en manque donc ${(value.level * 500) - value.xp} avant de monter de niveau!`);
 

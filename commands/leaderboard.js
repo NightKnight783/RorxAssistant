@@ -19,6 +19,11 @@ module.exports = {
 		.setName('leaderboard')
 		.setDescription('Show the 10 members with the most xp.'),
 	async execute(interaction) {
+
+        const author = {
+            name: interaction.user.globalName,
+            iconURL: "https://cdn.discordapp.com/avatars/" + interaction.user.id + '/' + interaction.user.avatar
+        }
 		
         const db = new Database("Database.sqlite")
 
@@ -31,7 +36,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setColor(Colors.Blue)
-                .setAuthor({ name: interaction.user.globalName })
+                .setAuthor(author)
                 .setTitle("Leaderboard")
                 .setDescription("Voici les " + value.length + " membres les plus actifs du serveur:");
 

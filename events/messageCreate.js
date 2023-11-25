@@ -4,7 +4,6 @@ const { Database } = require('sqlite3')
 module.exports = {
     name: Events.MessageCreate,
     async execute(message) {
-        return;
         if (message.author.bot) return
 
         const db = new Database("Database.sqlite")
@@ -38,8 +37,14 @@ module.exports = {
                         xp -= ((level) * 500)
                         level ++;
 
+                        const author = {
+                            name: message.author.globalName,
+                            iconURL: "https://cdn.discordapp.com/avatars/" + message.author.id + '/' + message.author.avatar
+                        }
+
                         const embed = new EmbedBuilder()
                             .setColor(Colors.Blue)
+                            .setAuthor(author)
                             .setTitle(`Félicitation ${message.author.globalName}!`)
                             .setDescription(`Vous venez d'atteindre le niveau ${level}!`)
 

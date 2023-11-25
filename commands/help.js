@@ -5,6 +5,11 @@ loopButton = async (response, interaction, components) => {
         if (!response)
             return;
 
+        const author = {
+            name: interaction.user.globalName,
+            iconURL: "https://cdn.discordapp.com/avatars/" + interaction.user.id + '/' + interaction.user.avatar
+        }
+
         const confirmation = await response.awaitMessageComponent({ time: 300_000 });
 
         let responseLoop = null;
@@ -13,7 +18,7 @@ loopButton = async (response, interaction, components) => {
             case 'server':  
                 const embedServer = new EmbedBuilder()
                     .setColor(Colors.Red)
-                    .setAuthor({ name: interaction.user.globalName })
+                    .setAuthor(author)
                     .setTitle(`Informations a propos du serveur [NIY]`);
 
                 responseLoop = await confirmation.update({ embeds: [embedServer], components: [components] });
@@ -22,7 +27,7 @@ loopButton = async (response, interaction, components) => {
             case 'command': 
                 const embedCommand = new EmbedBuilder()
                     .setColor(Colors.Green)
-                    .setAuthor({ name: interaction.user.globalName })
+                    .setAuthor(author)
                     .setTitle(`Liste des commandes disponibles`)
                     .setDescription(`Les paramètres indiqués sont soit [obligatoires] ou (optionnels)`)
                     .addFields({
@@ -56,7 +61,7 @@ loopButton = async (response, interaction, components) => {
             case 'xp':
                 const embedXp = new EmbedBuilder()
                     .setColor(Colors.Blue)
-                    .setAuthor({ name: interaction.user.globalName })
+                    .setAuthor(author)
                     .setTitle(`Le système d'xp permet d'attribuer au membres du serveur des points en focntion de leur activité sur ce dernier.`)
                     .setDescription(`Chaque message octroie entre 20 et 30 points d'experience (aléatoirement) avec un délai minimum de 10s entre chaque message.\n\nPour monter de niveau, le coût en éxperience est de 500 multiplié par le niveau actuel du membre.\n(Niveau 5 => 2500 points d'éxperience nécéssaires).\n\nVoici également des commandes pouvant vous êtres utiles:`)
                     .addFields({
@@ -106,7 +111,7 @@ module.exports = {
 
         const embedHelp = new EmbedBuilder()
             .setColor(Colors.Orange)
-            .setAuthor({ name: interaction.user.globalName })
+            .setAuthor(author)
             .setTitle(`Choisissez le sujet dont vous souhaitez avoir plus d'information (Ce message est supprimé 5 minutes après inactivité)`);
 
 
