@@ -4,7 +4,7 @@ const { Database } = require('sqlite3')
 module.exports = {
     name: Events.MessageCreate,
     async execute(message) {
-        if (message.author.bot) return
+        if (message.author.bot || !message.author.globalName) return
 
         const db = new Database("Database.sqlite")
 
