@@ -91,6 +91,11 @@ module.exports = {
 		.setDescription('Donne quelques informations a moitié utiles'),
 	async execute(interaction) {
 
+        const author = {
+            name: interaction.user.globalName,
+            iconURL: "https://cdn.discordapp.com/avatars/" + interaction.user.id + '/' + interaction.user.avatar
+        }
+
         const server = new ButtonBuilder()
             .setCustomId('server')
             .setLabel('Serveur')
