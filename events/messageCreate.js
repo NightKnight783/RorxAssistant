@@ -3,6 +3,7 @@ const { Database } = require('sqlite3')
 
 module.exports = {
     name: Events.MessageCreate,
+    once: false,
     async execute(message) {
         if (message.author.bot || !message.author.globalName) return
 
