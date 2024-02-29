@@ -1,9 +1,9 @@
 while (true) 
 do
     echo "Registering commands..."
-    node deploy-commands.js
+    npm run deploy
     echo "Starting bot..."
-    node main.js
+    npm run start
     echo "Bot restarting in 3s..."
     echo "Press [CTRL+C] to stop."
     sleep 3

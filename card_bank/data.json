@@ -6700,7 +6700,7 @@
       "Protection": 0,
       "Kit": 0,
       "Energy": 0,
-      "Special Ability": "Do not affect Robots on a Water tile and flying Robots.",
+      "Special Ability": "-9 Healh. Do not affect Robots on a Water tile and flying Robots.",
       "Price": 1600
     },
     {
